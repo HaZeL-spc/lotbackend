@@ -17,33 +17,31 @@ router.get(`/${API}/search_flights`, async (req, res) => {
   const { origin, destination, date } = req.query;
   const adults = 1;
   console.log(origin, destination, date);
-  //   const keyword = "NYC";
-  const response = await amadeus.shopping.flightOffersSearch.get({
-    originLocationCode: origin,
-    destinationLocationCode: destination,
-    departureDate: date,
-    adults: adults,
-  });
 
-  //console.log(response.body);
   try {
-    await res.json(JSON.parse(response.body));
+    const response = await amadeus.shopping.flightOffersSearch.get({
+      originLocationCode: origin,
+      destinationLocationCode: destination,
+      departureDate: date,
+      adults: adults,
+    });
+
+    res.json(JSON.parse(response.body));
   } catch (err) {
-    await res.json(err);
+    console.error(err);
+    res.status(500).send({ error: "Internal Server Error" });
   }
-  //res.status(201).send({ msg: "Created User" });
 });
 
 router.get(`/${API}/search`, async (req, res) => {
   const { keyword } = req.query;
-
-  const response = await amadeus.referenceData.locations.get({
-    keyword,
-    subType: "AIRPORT",
-  });
-
   //console.log(response.body);
   try {
+    const response = await amadeus.referenceData.locations.get({
+      keyword,
+      subType: "AIRPORT",
+    });
+
     await res.json(JSON.parse(response.body));
   } catch (err) {
     await res.json(err);
