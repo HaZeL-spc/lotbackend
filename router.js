@@ -16,7 +16,7 @@ const API = "api";
 router.get(`/${API}/search_flights`, async (req, res) => {
   const { origin, destination, date } = req.query;
   const adults = 1;
-  console.log(origin, destination, date);
+  // console.log(origin, destination, date);
 
   try {
     const response = await amadeus.shopping.flightOffersSearch.get({

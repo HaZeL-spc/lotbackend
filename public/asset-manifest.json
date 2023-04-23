@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.adef5ca3.css",
+    "main.js": "/static/js/main.e9818b5e.js",
+    "static/media/kokpitSamolotu.jpg": "/static/media/kokpitSamolotu.b95e81aa113d2539b3bc.jpg",
+    "index.html": "/index.html",
+    "main.adef5ca3.css.map": "/static/css/main.adef5ca3.css.map",
+    "main.e9818b5e.js.map": "/static/js/main.e9818b5e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.adef5ca3.css",
+    "static/js/main.e9818b5e.js"
+  ]
+}
